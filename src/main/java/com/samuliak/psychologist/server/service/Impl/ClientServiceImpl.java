@@ -63,6 +63,15 @@ public class ClientServiceImpl implements ClientService{
         return clRepository.findByLogin(login);
     }
 
+    public List<Client> findAllByDoctor(@Param("login") String login) {
+        List<Client> list = new ArrayList<Client>();
+        for(Client client : clRepository.findAll()){
+            if (client.getDoctor().getLogin().equals(login))
+                list.add(client);
+        }
+        return list;
+    }
+
     public List<Client> findAllByName(@Param("name") String name) {
         return clRepository.findAllByName(name);
     }

@@ -2,6 +2,7 @@ package com.samuliak.psychologist.server.controller;
 
 import com.samuliak.psychologist.server.entity.Client;
 import com.samuliak.psychologist.server.entity.Field;
+import com.samuliak.psychologist.server.entity.Friends;
 import com.samuliak.psychologist.server.entity.Psychologist;
 import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class PsychologistController {
         return service.getById(psId);
     }
 
-    //   Получить психолога по логинк
+    //   Получить психолога по логину
     @RequestMapping(value = "/psychologist/login{name}", method = RequestMethod.GET)
     @ResponseBody
     public Psychologist getPsychologistByLogin(@PathVariable("name") String psLogin){
@@ -80,9 +81,41 @@ public class PsychologistController {
     //   Получить все поля психолога по заданому логину
     @RequestMapping(value = "/field/{login}", method = RequestMethod.GET)
     @ResponseBody
-    public List<Field> getAllFieldById(@PathVariable("login") String login){
+    public List<Field> getAllFieldByLogin(@PathVariable("login") String login){
         int id = service.findByLogin(login).getID();
         return service.getAllFieldsById(id);
+    }
+
+    /*
+    Получить всех друзей психолога
+     */
+    @RequestMapping(value = "/friends/{login}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Friends> getAllFriendsByLogin(@PathVariable("login") String login){
+        return service.getAllFriends(login);
+    }
+
+    /*
+    Получить все запросы на дружбу
+     */
+    @RequestMapping(value = "/friends/request{login}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Friends> getAllFriendsRequestByLogin(@PathVariable("login") String login){
+        return service.getAllFriendsRequest(login);
+    }
+
+    //Подтвердить дружбу
+    @RequestMapping(value = "/friends/agree{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public void agreeFriend(@PathVariable("id") int id){
+        service.agreeFriend(id);
+    }
+
+    //Выход из онлайна
+    @RequestMapping(value = "/psychologist/online/false{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public void doctorOnlineFalse(@PathVariable("login") String login){
+        service.doctorOnlineFalse(login);
     }
 
     //   Сохранить поле

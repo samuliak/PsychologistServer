@@ -1,5 +1,6 @@
 package com.samuliak.psychologist.server.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
 
@@ -18,7 +19,7 @@ public class Psychologist {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer ID;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String login;
     @Column(nullable = false)
     private String name;
@@ -35,7 +36,9 @@ public class Psychologist {
     private String specialization;
     private String competence;
     private String direction_of_work;
+    private boolean online;
 
+    @JsonIgnore
     @OneToMany(mappedBy="doctor", fetch=FetchType.LAZY)
     @Cascade(CascadeType.SAVE_UPDATE)
     private List<Client> exClients = new ArrayList<Client>();
@@ -59,6 +62,7 @@ public class Psychologist {
         this.specialization = specialization;
         this.competence = competence;
         this.direction_of_work = direction_of_work;
+        this.online = false;
     }
 
     public Integer getID() {
@@ -181,4 +185,11 @@ public class Psychologist {
         this.exClients.add(client);
     }
 
+    public boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
+    }
 }

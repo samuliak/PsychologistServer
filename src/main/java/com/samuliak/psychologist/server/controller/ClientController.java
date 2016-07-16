@@ -100,8 +100,8 @@ public class ClientController {
      */
     @RequestMapping(value = "/client/doctor/login{name}", method = RequestMethod.GET)
     @ResponseBody
-    public List<Client> getClientsByDoctorLogin(@PathVariable("name") String clLogin){
-        return serviceCl.findAllByName(clLogin);
+    public List<Client> getClientsByDoctorLogin(@PathVariable("name") String psLogin){
+        return serviceCl.findAllByDoctor(psLogin);
     }
 
     //   Получить все журналы по логину

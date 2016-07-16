@@ -11,7 +11,7 @@ public interface ClientService {
 
     /*
     Данный сервис управляет всема функциями, которые можно сделать с клиентом
-    а так же с его журналами (класс Journal)
+    а так же с его журналами (класс Journal) и анкетой (класс Questionnaire)
      */
 
     List<Client> getAll();
@@ -21,6 +21,7 @@ public interface ClientService {
     void savePsychologist(int idClient, String login);
     void removePsychologist(int idClient);
     Client findByLogin(String login);
+    List<Client> findAllByDoctor(@Param("login") String login);
     List<Client> findAllByName(@Param("name") String name);
     List<Client> findAllBySurname(@Param("name") String name);
     List<Journal> getAllJournalsByLogin(String id);

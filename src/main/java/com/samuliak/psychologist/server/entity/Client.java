@@ -15,7 +15,7 @@ public class Client {
     @Column(name = "id")
     private Integer ID;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String login;
     @Column(nullable = false)
     private String name;
