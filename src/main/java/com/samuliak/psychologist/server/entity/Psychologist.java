@@ -1,6 +1,13 @@
 package com.samuliak.psychologist.server.entity;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 //Психолог
 @Entity
@@ -12,9 +19,11 @@ public class Psychologist {
     @Column(name = "id")
     private Integer ID;
     @Column(nullable = false)
-    private String first_name;
+    private String login;
     @Column(nullable = false)
-    private String second_name;
+    private String name;
+    @Column(nullable = false)
+    private String surname;
     @Column(nullable = false)
     private String password;
     private int age;
@@ -27,14 +36,19 @@ public class Psychologist {
     private String competence;
     private String direction_of_work;
 
+    @OneToMany(mappedBy="doctor", fetch=FetchType.LAZY)
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private List<Client> exClients = new ArrayList<Client>();
+
     public Psychologist() {
     }
 
-    public Psychologist(String first_name, String second_name, String password, int age, String country,
+    public Psychologist(String login, String name, String surname, String password, int age, String country,
                         String city, String interest, String place_of_work, String university, String specialization,
                         String competence, String direction_of_work) {
-        this.first_name = first_name;
-        this.second_name = second_name;
+        this.login = login;
+        this.name = name;
+        this.surname = surname;
         this.password = password;
         this.age = age;
         this.country = country;
@@ -55,20 +69,28 @@ public class Psychologist {
         this.ID = ID;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getSecond_name() {
-        return second_name;
+    public String getName() {
+        return name;
     }
 
-    public void setSecond_name(String second_name) {
-        this.second_name = second_name;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getPassword() {
@@ -150,4 +172,13 @@ public class Psychologist {
     public void setDirection_of_work(String direction_of_work) {
         this.direction_of_work = direction_of_work;
     }
+
+    public List<Client> getExClients() {
+        return exClients;
+    }
+
+    public void addClientForListExClients(Client client) {
+        this.exClients.add(client);
+    }
+
 }

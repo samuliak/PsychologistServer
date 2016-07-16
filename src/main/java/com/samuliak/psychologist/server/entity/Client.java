@@ -1,5 +1,8 @@
 package com.samuliak.psychologist.server.entity;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
 
 //Клиент
@@ -12,15 +15,20 @@ public class Client {
     @Column(name = "id")
     private Integer ID;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="questionnaire_id")
-    private Questionnaire questionnaire;
     @Column(nullable = false)
-    private String first_name;
+    private String login;
     @Column(nullable = false)
-    private String second_name;
+    private String name;
+    @Column(nullable = false)
+    private String surname;
     @Column(nullable = false)
     private String password;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="doctor")
+    @Cascade(CascadeType.SAVE_UPDATE)
+    private Psychologist doctor;
+
     private int age;
     private String country;
     private String city;
@@ -29,10 +37,20 @@ public class Client {
     public Client(){
     }
 
-    public Client(Questionnaire questionnaire, String first_name, String second_name, String password, int age, String country, String city, String interest) {
-        this.questionnaire = questionnaire;
-        this.first_name = first_name;
-        this.second_name = second_name;
+    public Client(String login, String first_name, String second_name, String password, int age, String country, String city, String interest) {
+        this.login = login;
+        this.name = first_name;
+        this.surname = second_name;
+        this.password = password;
+        this.age = age;
+        this.country = country;
+        this.city = city;
+        this.interest = interest;
+    }
+
+    public Client(String first_name, String second_name, String password, int age, String country, String city, String interest) {
+        this.name = first_name;
+        this.surname = second_name;
         this.password = password;
         this.age = age;
         this.country = country;
@@ -47,28 +65,28 @@ public class Client {
         this.ID = ID;
     }
 
-    public Questionnaire getQuestionnaire() {
-        return questionnaire;
+    public String getLogin() {
+        return login;
     }
 
-    public void setQuestionnaire(Questionnaire questionnaire) {
-        this.questionnaire = questionnaire;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getName() {
+        return name;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSecond_name() {
-        return second_name;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSecond_name(String second_name) {
-        this.second_name = second_name;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getPassword() {
@@ -109,5 +127,13 @@ public class Client {
 
     public void setInterest(String interest) {
         this.interest = interest;
+    }
+
+    public Psychologist getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Psychologist doctor) {
+        this.doctor = doctor;
     }
 }

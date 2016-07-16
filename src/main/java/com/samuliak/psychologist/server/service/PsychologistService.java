@@ -1,5 +1,6 @@
 package com.samuliak.psychologist.server.service;
 
+import com.samuliak.psychologist.server.entity.Client;
 import com.samuliak.psychologist.server.entity.Field;
 import com.samuliak.psychologist.server.entity.Psychologist;
 import org.springframework.data.repository.query.Param;
@@ -15,7 +16,10 @@ public interface PsychologistService {
     Psychologist getById(int id);
     void remove(int id);
     void save(Psychologist psyh);
-    Psychologist getByFirstName(@Param("name") String name);
+    Psychologist findByLogin(String login);
+    List<Psychologist> findAllByName(@Param("name") String name);
+    List<Psychologist> findAllBySurname(@Param("name") String name);
+    List<Client> getListExClients(String login);
     List<Field> getAllFieldsById(int id);
     void saveField(Field field);
     void removeField(int id);

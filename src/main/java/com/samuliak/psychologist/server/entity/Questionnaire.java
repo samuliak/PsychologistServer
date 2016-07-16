@@ -12,8 +12,7 @@ public class Questionnaire {
     @Column(name = "id")
     private Integer ID;
 
-    @OneToOne(mappedBy = "questionnaire")
-    private Client client;
+    private int clientid;
 
     /*
     Здесь будут разные поля, типа пол/вредные привычки и так дальше....
@@ -22,4 +21,23 @@ public class Questionnaire {
     public Questionnaire(){
     }
 
+    public Questionnaire(int clientid) {
+        this.clientid = clientid;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public int getClientid() {
+        return clientid;
+    }
+
+    public void setClientid(int clientid) {
+        this.clientid = clientid;
+    }
 }

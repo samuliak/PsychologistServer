@@ -1,5 +1,6 @@
 package com.samuliak.psychologist.server.service.Impl;
 
+import com.samuliak.psychologist.server.entity.Client;
 import com.samuliak.psychologist.server.entity.Field;
 import com.samuliak.psychologist.server.entity.Psychologist;
 import com.samuliak.psychologist.server.repository.FieldRepository;
@@ -41,9 +42,22 @@ public class PsychologistServiceImpl implements PsychologistService {
         psRepository.save(psyh);
     }
 
-    public Psychologist getByFirstName(@Param("name") String name) {
-        return psRepository.findByFirstName(name);
+    public Psychologist findByLogin(String login) {
+        return psRepository.findByLogin(login);
     }
+
+    public List<Psychologist> findAllByName(@Param("name") String name) {
+        return psRepository.findAllByName(name);
+    }
+
+    public List<Psychologist> findAllBySurname(@Param("name") String name) {
+        return psRepository.findAllBySurname(name);
+    }
+
+    public List<Client> getListExClients(String login) {
+        return psRepository.findByLogin(login).getExClients();
+    }
+
 
     public List<Field> getAllFieldsById(int id) {
         List<Field> list = new ArrayList<Field>();

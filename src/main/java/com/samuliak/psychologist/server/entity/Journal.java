@@ -13,9 +13,7 @@ public class Journal {
     @Column(name = "id")
     private Integer ID;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+    private String clientLogin;
 
     @Column(name = "creation_date")
     @Temporal(TemporalType.TIMESTAMP)
@@ -26,8 +24,8 @@ public class Journal {
     public Journal(){
     }
 
-    public Journal(Client client, Date creationDate, String note) {
-        this.client = client;
+    public Journal(String clientLogin, Date creationDate, String note) {
+        this.clientLogin = clientLogin;
         this.creationDate = creationDate;
         this.note = note;
     }
@@ -40,12 +38,12 @@ public class Journal {
         this.ID = ID;
     }
 
-    public Client getClient() {
-        return client;
+    public String getClient() {
+        return clientLogin;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClient(String client) {
+        this.clientLogin = client;
     }
 
     public Date getCreationDate() {
