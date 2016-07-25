@@ -52,11 +52,13 @@ public class ClientServiceImpl implements ClientService{
     }
 
     public void savePsychologist(int idClient, String idPs) {
-        clRepository.findOne(idClient).setDoctor(psRepository.findByLogin(idPs));
+        Client client = clRepository.findOne(idClient);
+//        client.setDoctor(idPs);
+        clRepository.save(client);
     }
 
     public void removePsychologist(int idClient) {
-        clRepository.findOne(idClient).setDoctor(null);
+//        clRepository.findOne(idClient).setDoctor(null);
     }
 
     public Client findByLogin(String login) {
@@ -65,10 +67,12 @@ public class ClientServiceImpl implements ClientService{
 
     public List<Client> findAllByDoctor(@Param("login") String login) {
         List<Client> list = new ArrayList<Client>();
-        for(Client client : clRepository.findAll()){
-            if (client.getDoctor().getLogin().equals(login))
-                list.add(client);
-        }
+//        for(Client client : clRepository.findAll()){
+//            System.out.println(client.getDoctor());
+//            if (client.getDoctor().equals(login))
+//                list.add(client);
+//
+//        }
         return list;
     }
 

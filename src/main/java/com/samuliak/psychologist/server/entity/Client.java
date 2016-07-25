@@ -1,8 +1,5 @@
 package com.samuliak.psychologist.server.entity;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import javax.persistence.*;
 
 //Клиент
@@ -24,11 +21,6 @@ public class Client {
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="doctor")
-    @Cascade(CascadeType.SAVE_UPDATE)
-    private Psychologist doctor;
-
     private int age;
     private String country;
     private String city;
@@ -48,15 +40,6 @@ public class Client {
         this.interest = interest;
     }
 
-    public Client(String first_name, String second_name, String password, int age, String country, String city, String interest) {
-        this.name = first_name;
-        this.surname = second_name;
-        this.password = password;
-        this.age = age;
-        this.country = country;
-        this.city = city;
-        this.interest = interest;
-    }
     public Integer getID() {
         return ID;
     }
@@ -127,13 +110,5 @@ public class Client {
 
     public void setInterest(String interest) {
         this.interest = interest;
-    }
-
-    public Psychologist getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Psychologist doctor) {
-        this.doctor = doctor;
     }
 }

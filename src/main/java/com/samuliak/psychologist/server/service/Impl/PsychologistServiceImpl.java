@@ -1,12 +1,7 @@
 package com.samuliak.psychologist.server.service.Impl;
 
-import com.samuliak.psychologist.server.entity.Client;
-import com.samuliak.psychologist.server.entity.Field;
-import com.samuliak.psychologist.server.entity.Friends;
-import com.samuliak.psychologist.server.entity.Psychologist;
-import com.samuliak.psychologist.server.repository.FieldRepository;
-import com.samuliak.psychologist.server.repository.FriendsRepository;
-import com.samuliak.psychologist.server.repository.PsychologistRepository;
+import com.samuliak.psychologist.server.entity.*;
+import com.samuliak.psychologist.server.repository.*;
 import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -14,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class PsychologistServiceImpl implements PsychologistService {
@@ -22,10 +18,16 @@ public class PsychologistServiceImpl implements PsychologistService {
     private PsychologistRepository psRepository;
 
     @Autowired
+    private ClientRepository clRepository;
+
+    @Autowired
     private FieldRepository fdRepository;
 
     @Autowired
     private FriendsRepository frRepository;
+
+    @Autowired
+    private CurrentClientsRepository ccRepository;
 
     public List<Psychologist> getAll() {
         List<Psychologist> list = new ArrayList<Psychologist>();
@@ -62,11 +64,6 @@ public class PsychologistServiceImpl implements PsychologistService {
         return psRepository.findAllBySurname(name);
     }
 
-    public List<Client> getListExClients(String login) {
-        return psRepository.findByLogin(login).getExClients();
-    }
-
-
     public List<Field> getAllFieldsById(int id) {
         List<Field> list = new ArrayList<Field>();
         for(Field field : fdRepository.findAll()){
@@ -102,4 +99,45 @@ public class PsychologistServiceImpl implements PsychologistService {
         psychologist.setOnline(false);
         psRepository.save(psychologist);
     }
+
+    /*
+    Методы для работы с клиентами
+     */
+    public List<Client> getAllClientsByDoctorLogin(String login) {
+        List<Client> list = new ArrayList<Client>();
+        for(CurrentClients item : ccRepository.findAll()){
+            if (item.getDoctor().equals(login) && item.isClient()) {
+                list.add(clRepository.findByLogin(item.getClient()));
+            }
+        }
+        return list;
+    }
+
+    public List<Client> getListPotencialClients(String login) {
+        List<Client> list = new ArrayList<Client>();
+        for(CurrentClients item : ccRepository.findAll()){
+            if (item.getDoctor().equals(login) && !item.isClient()) {
+                list.add(clRepository.findByLogin(item.getClient()));
+            }
+        }
+        return list;
+    }
+
+    public void saveClient(CurrentClients currentClients) {
+        boolean bol = false;
+        for(CurrentClients item : ccRepository.findAll()){
+            if(currentClients.getClient().equals(item.getClient()))
+                bol = true;
+        }
+        if (!bol)
+            ccRepository.save(currentClients);
+    }
+
+    public void removeClient(String client_login) {
+        for(CurrentClients item : ccRepository.findAll()){
+            if(item.getClient().equals(client_login))
+                ccRepository.delete(item.getID());
+        }
+    }
+
 }

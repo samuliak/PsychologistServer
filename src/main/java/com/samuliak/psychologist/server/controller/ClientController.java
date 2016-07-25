@@ -1,9 +1,6 @@
 package com.samuliak.psychologist.server.controller;
 
-import com.samuliak.psychologist.server.entity.Client;
-import com.samuliak.psychologist.server.entity.Journal;
-import com.samuliak.psychologist.server.entity.Psychologist;
-import com.samuliak.psychologist.server.entity.Questionnaire;
+import com.samuliak.psychologist.server.entity.*;
 import com.samuliak.psychologist.server.service.ClientService;
 import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +65,7 @@ public class ClientController {
     }
 
     //   Удалить клиента
-    @RequestMapping(value = "/client/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/client/{id}", method = RequestMethod.GET)
     @ResponseBody
     public void removeClient(@PathVariable("id") int id){
         serviceCl.remove(id);
@@ -76,22 +73,21 @@ public class ClientController {
 
 
     //   Назначить врача клиенту
-    @RequestMapping(value = "/client/psadd/client{id}/login{login}", method = RequestMethod.GET)
+    @RequestMapping(value = "/client/psadd/client{log}/login{login}", method = RequestMethod.POST)
     @ResponseBody
-    public void setPsychologistClient(@PathVariable("id") int id, @PathVariable("login") String login){
-        serviceCl.savePsychologist(id, login);
+    public void addClient(@PathVariable("log") String log, @PathVariable("login") String login){
+        CurrentClients item = new CurrentClients(login, log);
+        servicePs.saveClient(item);
     }
 
     /*
     Удалить психолога клиента
     Так же паралельно добавляет клиента в список exClients психологу
      */
-    @RequestMapping(value = "/client/psremove{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/client/psremove{login}", method = RequestMethod.POST)
     @ResponseBody
-    public void removePsychologistClient(@PathVariable("id") int id){
-        Psychologist doctor = serviceCl.getById(id).getDoctor();
-        doctor.addClientForListExClients(serviceCl.getById(id));
-        serviceCl.removePsychologist(id);
+    public void removeClient(@PathVariable("login") String login){
+        servicePs.removeClient(login);
     }
 
     /*
@@ -101,7 +97,7 @@ public class ClientController {
     @RequestMapping(value = "/client/doctor/login{name}", method = RequestMethod.GET)
     @ResponseBody
     public List<Client> getClientsByDoctorLogin(@PathVariable("name") String psLogin){
-        return serviceCl.findAllByDoctor(psLogin);
+        return servicePs.getAllClientsByDoctorLogin(psLogin);
     }
 
     //   Получить все журналы по логину

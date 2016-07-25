@@ -1,14 +1,6 @@
 package com.samuliak.psychologist.server.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.CascadeType;
-
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
 //Психолог
 @Entity
@@ -38,11 +30,6 @@ public class Psychologist {
     private String direction_of_work;
     private boolean online;
 
-    @JsonIgnore
-    @OneToMany(mappedBy="doctor", fetch=FetchType.LAZY)
-    @Cascade(CascadeType.SAVE_UPDATE)
-    private List<Client> exClients = new ArrayList<Client>();
-
     public Psychologist() {
     }
 
@@ -67,10 +54,6 @@ public class Psychologist {
 
     public Integer getID() {
         return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
     }
 
     public String getLogin() {
@@ -175,14 +158,6 @@ public class Psychologist {
 
     public void setDirection_of_work(String direction_of_work) {
         this.direction_of_work = direction_of_work;
-    }
-
-    public List<Client> getExClients() {
-        return exClients;
-    }
-
-    public void addClientForListExClients(Client client) {
-        this.exClients.add(client);
     }
 
     public boolean isOnline() {

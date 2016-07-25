@@ -30,7 +30,7 @@ public class PsychologistController {
     }
 
     //   Получить психолога по ID
-    @RequestMapping(value = "/psychologist/id{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/psychologist/id{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public Psychologist getPsychologistById(@PathVariable("id") int psId){
         return service.getById(psId);
@@ -71,11 +71,11 @@ public class PsychologistController {
         service.remove(psId);
     }
 
-    //   Получить список прошлых клиентов
-    @RequestMapping(value = "/psychologist/exclient{login}", method = RequestMethod.GET)
+    //   Получить список потенциальных клиентов
+    @RequestMapping(value = "/psychologist/potencial{login}", method = RequestMethod.GET)
     @ResponseBody
-    public List<Client> getExClients(@PathVariable("login") String login){
-        return service.getListExClients(login);
+    public List<Client> getPotencialClients(@PathVariable("login") String login){
+        return service.getListPotencialClients(login);
     }
 
     //   Получить все поля психолога по заданому логину

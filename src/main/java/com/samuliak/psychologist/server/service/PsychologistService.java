@@ -1,9 +1,6 @@
 package com.samuliak.psychologist.server.service;
 
-import com.samuliak.psychologist.server.entity.Client;
-import com.samuliak.psychologist.server.entity.Field;
-import com.samuliak.psychologist.server.entity.Friends;
-import com.samuliak.psychologist.server.entity.Psychologist;
+import com.samuliak.psychologist.server.entity.*;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
@@ -20,7 +17,6 @@ public interface PsychologistService {
     Psychologist findByLogin(String login);
     List<Psychologist> findAllByName(@Param("name") String name);
     List<Psychologist> findAllBySurname(@Param("name") String name);
-    List<Client> getListExClients(String login);
     List<Field> getAllFieldsById(int id);
     // Работа с друзьями
     List<Friends> getAllFriends(String login);
@@ -30,4 +26,9 @@ public interface PsychologistService {
     void removeField(int id);
     // Онлайн
     void doctorOnlineFalse(String login);
+    // Работа с текущими клиентами
+    List<Client> getAllClientsByDoctorLogin(String login);
+    List<Client> getListPotencialClients(String login);
+    void saveClient(CurrentClients currentClients);
+    void removeClient(String client_login);
 }

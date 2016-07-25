@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6bb814-0fca-4295-a5a1-eb767d957724" name="Default" comment="Add logic to doctor`s controller. Examples: isOnline, differents list about clients or doctors.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Friends.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FriendsRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/CurrentClients.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/CurrentClientsRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Questionnaire.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Questionnaire.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/ClientRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/ClientRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java" afterPath="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java" />
@@ -39,29 +35,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java">
+      <file leaf-file-name="PsychologistController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-              <folding />
+            <state relative-caret-position="270">
+              <caret line="74" column="59" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PsychologistController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
+      <file leaf-file-name="ClientController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+            <state relative-caret-position="127">
+              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3985#3986#0" expanded="true" />
-                <element signature="e#4024#4025#0" expanded="true" />
-                <element signature="e#4232#4233#0" expanded="true" />
-                <element signature="e#4280#4281#0" expanded="true" />
-                <element signature="e#4448#4449#0" expanded="true" />
-                <element signature="e#4488#4489#0" expanded="true" />
+                <element signature="e#3061#3062#0" expanded="true" />
+                <element signature="e#3106#3107#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,8 +64,8 @@
       <file leaf-file-name="PsychologistService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="510">
+              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,70 +73,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PsychologistServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PsychologistServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+            <state relative-caret-position="128">
+              <caret line="108" column="60" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
               <folding>
-                <element signature="e#2438#2439#0" expanded="true" />
-                <element signature="e#2502#2503#0" expanded="true" />
-                <element signature="e#2565#2566#0" expanded="true" />
-                <element signature="e#2636#2637#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PsychologistRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FriendsRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FriendsRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Psychologist.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1930">
-              <caret line="188" column="20" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1221#1229#0" expanded="true" />
-                <element signature="e#4415#4416#0" expanded="true" />
-                <element signature="e#4444#4445#0" expanded="true" />
-                <element signature="e#4489#4490#0" expanded="true" />
-                <element signature="e#4525#4526#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-              <folding>
-                <element signature="method#getAll#0;class#ClientServiceImpl#0" expanded="false" />
-                <element signature="e#2044#2052#0" expanded="true" />
+                <element signature="e#3013#3021#0" expanded="true" />
+                <element signature="e#3380#3388#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,19 +121,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Journal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/QuestionnaireRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Questionnaire.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Friends.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/ClientRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FriendsRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/CurrentClientsRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/CurrentClients.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -255,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -456,36 +395,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Psychologist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Psychologist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -523,6 +432,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -945,7 +855,8 @@
     </configuration>
     <configuration default="false" name="Tomcat 8.0.33" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.33" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="Psychologist:war">
           <settings>
@@ -1037,6 +948,9 @@
       <workItem from="1468572726957" duration="187000" />
       <workItem from="1468591823247" duration="11154000" />
       <workItem from="1468677468728" duration="11817000" />
+      <workItem from="1469371770901" duration="805000" />
+      <workItem from="1469386100230" duration="6034000" />
+      <workItem from="1469425017712" duration="19819000" />
     </task>
     <task id="LOCAL-00001" summary="Create entities and basic configs">
       <created>1468504283961</created>
@@ -1063,7 +977,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31330000" />
+    <option name="totallyTimeSpent" value="57988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1087,7 +1001,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20694087" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32775453" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44490933" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -1139,6 +1053,206 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+            <element signature="e#2916#2917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="91" column="64" selection-start-line="91" selection-start-column="64" selection-end-line="91" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3061#3062#0" expanded="true" />
+            <element signature="e#3106#3107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="e#3013#3021#0" expanded="true" />
+            <element signature="e#3380#3388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
+          <folding>
+            <element signature="method#getAll#0;class#ClientServiceImpl#0" expanded="false" />
+            <element signature="e#2089#2097#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <folding>
+            <element signature="e#1717#1718#0" expanded="false" />
+            <element signature="e#1745#1746#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="32" column="49" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+            <element signature="e#2916#2917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+            <element signature="e#2916#2917#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+          <folding>
+            <element signature="e#3013#3021#0" expanded="true" />
+            <element signature="e#3380#3388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FriendsRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2176">
+          <caret line="188" column="20" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="20" />
+          <folding>
+            <element signature="e#1717#1718#0" expanded="false" />
+            <element signature="e#1745#1746#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+          <folding>
+            <element signature="method#getAll#0;class#ClientServiceImpl#0" expanded="false" />
+            <element signature="e#2089#2097#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1169,14 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Journal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
@@ -1190,104 +1296,94 @@
         <state relative-caret-position="408">
           <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
           <folding>
-            <element signature="e#2117#2118#0" expanded="true" />
-            <element signature="e#2144#2145#0" expanded="true" />
-            <element signature="e#2184#2185#0" expanded="true" />
-            <element signature="e#2216#2217#0" expanded="true" />
-            <element signature="e#2247#2248#0" expanded="true" />
-            <element signature="e#2274#2275#0" expanded="true" />
-            <element signature="e#2314#2315#0" expanded="true" />
-            <element signature="e#2346#2347#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#2401#2402#0" expanded="true" />
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="e#2470#2471#0" expanded="true" />
-            <element signature="e#2498#2499#0" expanded="true" />
-            <element signature="e#2525#2526#0" expanded="true" />
-            <element signature="e#2562#2563#0" expanded="true" />
-            <element signature="e#2594#2595#0" expanded="true" />
-            <element signature="e#2625#2626#0" expanded="true" />
-            <element signature="e#2652#2653#0" expanded="true" />
-            <element signature="e#2692#2693#0" expanded="true" />
-            <element signature="e#2724#2725#0" expanded="true" />
-            <element signature="e#2755#2756#0" expanded="true" />
-            <element signature="e#2782#2783#0" expanded="true" />
-            <element signature="e#2822#2823#0" expanded="true" />
-            <element signature="e#2854#2855#0" expanded="true" />
-            <element signature="e#2887#2888#0" expanded="true" />
-            <element signature="e#2916#2917#0" expanded="true" />
-            <element signature="e#2960#2961#0" expanded="true" />
-            <element signature="e#2996#2997#0" expanded="true" />
-            <element signature="e#3029#3030#0" expanded="true" />
-            <element signature="e#3058#3059#0" expanded="true" />
-            <element signature="e#3102#3103#0" expanded="true" />
-            <element signature="e#3138#3139#0" expanded="true" />
-            <element signature="e#3169#3170#0" expanded="true" />
-            <element signature="e#3196#3197#0" expanded="true" />
-            <element signature="e#3236#3237#0" expanded="true" />
-            <element signature="e#3268#3269#0" expanded="true" />
-            <element signature="e#3299#3300#0" expanded="true" />
-            <element signature="e#3326#3327#0" expanded="true" />
-            <element signature="e#3366#3367#0" expanded="true" />
-            <element signature="e#3398#3399#0" expanded="true" />
-            <element signature="e#3430#3431#0" expanded="true" />
-            <element signature="e#3458#3459#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3534#3535#0" expanded="true" />
-            <element signature="e#3568#3569#0" expanded="true" />
-            <element signature="e#3598#3599#0" expanded="true" />
-            <element signature="e#3644#3645#0" expanded="true" />
-            <element signature="e#3682#3683#0" expanded="true" />
-            <element signature="e#3716#3717#0" expanded="true" />
-            <element signature="e#3746#3747#0" expanded="true" />
-            <element signature="e#3792#3793#0" expanded="true" />
-            <element signature="e#3830#3831#0" expanded="true" />
-            <element signature="e#3862#3863#0" expanded="true" />
-            <element signature="e#3890#3891#0" expanded="true" />
-            <element signature="e#3932#3933#0" expanded="true" />
-            <element signature="e#3966#3967#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
-            <element signature="e#4026#4027#0" expanded="true" />
-            <element signature="e#4068#4069#0" expanded="true" />
-            <element signature="e#4102#4103#0" expanded="true" />
-            <element signature="e#4134#4135#0" expanded="true" />
-            <element signature="e#4162#4163#0" expanded="true" />
-            <element signature="e#4204#4205#0" expanded="true" />
-            <element signature="e#4238#4239#0" expanded="true" />
-            <element signature="e#4270#4271#0" expanded="true" />
-            <element signature="e#4298#4299#0" expanded="true" />
-            <element signature="e#4340#4341#0" expanded="true" />
-            <element signature="e#4374#4375#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
-            <element signature="e#4434#4435#0" expanded="true" />
-            <element signature="e#4476#4477#0" expanded="true" />
-            <element signature="e#4510#4511#0" expanded="true" />
-            <element signature="e#4542#4543#0" expanded="true" />
-            <element signature="e#4570#4571#0" expanded="true" />
-            <element signature="e#4612#4613#0" expanded="true" />
-            <element signature="e#4646#4647#0" expanded="true" />
-            <element signature="e#4678#4679#0" expanded="true" />
-            <element signature="e#4706#4707#0" expanded="true" />
-            <element signature="e#4748#4749#0" expanded="true" />
-            <element signature="e#4782#4783#0" expanded="true" />
-            <element signature="e#4814#4815#0" expanded="true" />
-            <element signature="e#4842#4843#0" expanded="true" />
-            <element signature="e#4884#4885#0" expanded="true" />
-            <element signature="e#4918#4919#0" expanded="true" />
-            <element signature="e#4950#4951#0" expanded="true" />
-            <element signature="e#4978#4979#0" expanded="true" />
-            <element signature="e#5020#5021#0" expanded="true" />
-            <element signature="e#5054#5055#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/JournalRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="false" />
+            <element signature="e#2144#2145#0" expanded="false" />
+            <element signature="e#2184#2185#0" expanded="false" />
+            <element signature="e#2216#2217#0" expanded="false" />
+            <element signature="e#2247#2248#0" expanded="false" />
+            <element signature="e#2274#2275#0" expanded="false" />
+            <element signature="e#2314#2315#0" expanded="false" />
+            <element signature="e#2346#2347#0" expanded="false" />
+            <element signature="e#2374#2375#0" expanded="false" />
+            <element signature="e#2401#2402#0" expanded="false" />
+            <element signature="e#2438#2439#0" expanded="false" />
+            <element signature="e#2470#2471#0" expanded="false" />
+            <element signature="e#2498#2499#0" expanded="false" />
+            <element signature="e#2525#2526#0" expanded="false" />
+            <element signature="e#2562#2563#0" expanded="false" />
+            <element signature="e#2594#2595#0" expanded="false" />
+            <element signature="e#2625#2626#0" expanded="false" />
+            <element signature="e#2652#2653#0" expanded="false" />
+            <element signature="e#2692#2693#0" expanded="false" />
+            <element signature="e#2724#2725#0" expanded="false" />
+            <element signature="e#2755#2756#0" expanded="false" />
+            <element signature="e#2782#2783#0" expanded="false" />
+            <element signature="e#2822#2823#0" expanded="false" />
+            <element signature="e#2854#2855#0" expanded="false" />
+            <element signature="e#2887#2888#0" expanded="false" />
+            <element signature="e#2916#2917#0" expanded="false" />
+            <element signature="e#2960#2961#0" expanded="false" />
+            <element signature="e#2996#2997#0" expanded="false" />
+            <element signature="e#3029#3030#0" expanded="false" />
+            <element signature="e#3058#3059#0" expanded="false" />
+            <element signature="e#3102#3103#0" expanded="false" />
+            <element signature="e#3138#3139#0" expanded="false" />
+            <element signature="e#3169#3170#0" expanded="false" />
+            <element signature="e#3196#3197#0" expanded="false" />
+            <element signature="e#3236#3237#0" expanded="false" />
+            <element signature="e#3268#3269#0" expanded="false" />
+            <element signature="e#3299#3300#0" expanded="false" />
+            <element signature="e#3326#3327#0" expanded="false" />
+            <element signature="e#3366#3367#0" expanded="false" />
+            <element signature="e#3398#3399#0" expanded="false" />
+            <element signature="e#3430#3431#0" expanded="false" />
+            <element signature="e#3458#3459#0" expanded="false" />
+            <element signature="e#3500#3501#0" expanded="false" />
+            <element signature="e#3534#3535#0" expanded="false" />
+            <element signature="e#3568#3569#0" expanded="false" />
+            <element signature="e#3598#3599#0" expanded="false" />
+            <element signature="e#3644#3645#0" expanded="false" />
+            <element signature="e#3682#3683#0" expanded="false" />
+            <element signature="e#3716#3717#0" expanded="false" />
+            <element signature="e#3746#3747#0" expanded="false" />
+            <element signature="e#3792#3793#0" expanded="false" />
+            <element signature="e#3830#3831#0" expanded="false" />
+            <element signature="e#3862#3863#0" expanded="false" />
+            <element signature="e#3890#3891#0" expanded="false" />
+            <element signature="e#3932#3933#0" expanded="false" />
+            <element signature="e#3966#3967#0" expanded="false" />
+            <element signature="e#3998#3999#0" expanded="false" />
+            <element signature="e#4026#4027#0" expanded="false" />
+            <element signature="e#4068#4069#0" expanded="false" />
+            <element signature="e#4102#4103#0" expanded="false" />
+            <element signature="e#4134#4135#0" expanded="false" />
+            <element signature="e#4162#4163#0" expanded="false" />
+            <element signature="e#4204#4205#0" expanded="false" />
+            <element signature="e#4238#4239#0" expanded="false" />
+            <element signature="e#4270#4271#0" expanded="false" />
+            <element signature="e#4298#4299#0" expanded="false" />
+            <element signature="e#4340#4341#0" expanded="false" />
+            <element signature="e#4374#4375#0" expanded="false" />
+            <element signature="e#4406#4407#0" expanded="false" />
+            <element signature="e#4434#4435#0" expanded="false" />
+            <element signature="e#4476#4477#0" expanded="false" />
+            <element signature="e#4510#4511#0" expanded="false" />
+            <element signature="e#4542#4543#0" expanded="false" />
+            <element signature="e#4570#4571#0" expanded="false" />
+            <element signature="e#4612#4613#0" expanded="false" />
+            <element signature="e#4646#4647#0" expanded="false" />
+            <element signature="e#4678#4679#0" expanded="false" />
+            <element signature="e#4706#4707#0" expanded="false" />
+            <element signature="e#4748#4749#0" expanded="false" />
+            <element signature="e#4782#4783#0" expanded="false" />
+            <element signature="e#4814#4815#0" expanded="false" />
+            <element signature="e#4842#4843#0" expanded="false" />
+            <element signature="e#4884#4885#0" expanded="false" />
+            <element signature="e#4918#4919#0" expanded="false" />
+            <element signature="e#4950#4951#0" expanded="false" />
+            <element signature="e#4978#4979#0" expanded="false" />
+            <element signature="e#5020#5021#0" expanded="false" />
+            <element signature="e#5054#5055#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1296,96 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FieldRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/ClientRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Friends.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-          <folding>
-            <element signature="method#getAll#0;class#ClientServiceImpl#0" expanded="false" />
-            <element signature="e#2044#2052#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FriendsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,40 +1411,166 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/PsychologistRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+        <state relative-caret-position="102">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
-            <element signature="e#2438#2439#0" expanded="true" />
-            <element signature="e#2502#2503#0" expanded="true" />
-            <element signature="e#2565#2566#0" expanded="true" />
-            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/ClientService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="340">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/ClientServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="method#getAll#0;class#ClientServiceImpl#0" expanded="false" />
+            <element signature="e#2089#2097#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FieldRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/JournalRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Friends.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/ClientRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/FriendsRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="12" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/repository/CurrentClientsRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_77/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Psychologist.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1930">
-          <caret line="188" column="20" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="20" />
+        <state relative-caret-position="591">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding>
+            <element signature="e#1717#1718#0" expanded="false" />
+            <element signature="e#1745#1746#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/CurrentClients.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+          <folding>
+            <element signature="e#1106#1107#0" expanded="false" />
+            <element signature="e#1151#1152#0" expanded="false" />
+            <element signature="e#1184#1185#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/entity/Field.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/PsychologistService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1221#1229#0" expanded="true" />
-            <element signature="e#4415#4416#0" expanded="true" />
-            <element signature="e#4444#4445#0" expanded="true" />
-            <element signature="e#4489#4490#0" expanded="true" />
-            <element signature="e#4525#4526#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3061#3062#0" expanded="true" />
+            <element signature="e#3106#3107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="74" column="59" selection-start-line="74" selection-start-column="30" selection-end-line="74" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1451,18 +1583,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/controller/PsychologistController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/samuliak/psychologist/server/service/Impl/PsychologistServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        <state relative-caret-position="128">
+          <caret line="108" column="60" selection-start-line="108" selection-start-column="60" selection-end-line="108" selection-end-column="60" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3985#3986#0" expanded="true" />
-            <element signature="e#4024#4025#0" expanded="true" />
-            <element signature="e#4232#4233#0" expanded="true" />
-            <element signature="e#4280#4281#0" expanded="true" />
-            <element signature="e#4448#4449#0" expanded="true" />
-            <element signature="e#4488#4489#0" expanded="true" />
+            <element signature="e#3013#3021#0" expanded="true" />
+            <element signature="e#3380#3388#0" expanded="true" />
           </folding>
         </state>
       </provider>
