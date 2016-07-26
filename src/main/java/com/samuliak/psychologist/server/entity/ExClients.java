@@ -1,13 +1,15 @@
 package com.samuliak.psychologist.server.entity;
 
+import com.sun.istack.internal.Nullable;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "current_clients")
-public class CurrentClients {
+@Table(name = "ex_clients")
+public class ExClients {
 
     /*
-    Здесь будут хранится теперешнии клиенты врача
+    Здесь будут хранится прошлые клиенты врача
      */
 
     @Id
@@ -21,15 +23,11 @@ public class CurrentClients {
     @Column(nullable = false, unique = true)
     private String client;
 
-    @Column(nullable = false)
-    private boolean isClient;
+    public ExClients(){}
 
-    public CurrentClients(){}
-
-    public CurrentClients(String doctor, String client) {
+    public ExClients(String doctor, String client) {
         this.doctor = doctor;
         this.client = client;
-        isClient = false;
     }
 
     public Integer getID() {
@@ -54,13 +52,5 @@ public class CurrentClients {
 
     public void setClient(String client) {
         this.client = client;
-    }
-
-    public boolean isClient() {
-        return isClient;
-    }
-
-    public void setClient(boolean client) {
-        isClient = client;
     }
 }

@@ -1,9 +1,8 @@
 package com.samuliak.psychologist.server.controller;
 
-import com.samuliak.psychologist.server.entity.Client;
-import com.samuliak.psychologist.server.entity.Field;
-import com.samuliak.psychologist.server.entity.Friends;
-import com.samuliak.psychologist.server.entity.Psychologist;
+import com.samuliak.psychologist.server.entity.*;
+import com.samuliak.psychologist.server.repository.CurrentClientsRepository;
+import com.samuliak.psychologist.server.service.ClientService;
 import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +20,11 @@ public class PsychologistController {
 
     @Autowired
     private PsychologistService service;
+
+    @Autowired
+    private CurrentClientsRepository ccService;
+
+
 
     //   Получить всех психологов
     @RequestMapping(value = "/psychologist", method = RequestMethod.GET)
@@ -72,10 +76,34 @@ public class PsychologistController {
     }
 
     //   Получить список потенциальных клиентов
-    @RequestMapping(value = "/psychologist/potencial{login}", method = RequestMethod.GET)
+    @RequestMapping(value = "/psychologist/potencial{login}", method = RequestMethod.POST)
     @ResponseBody
     public List<Client> getPotencialClients(@PathVariable("login") String login){
         return service.getListPotencialClients(login);
+    }
+
+    //   Подтвердить клиента
+    @RequestMapping(value = "/psychologist/agree/{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public void agreeClient(@PathVariable("login") String login){
+        CurrentClients currentClients = ccService.findByClient(login);
+        currentClients.setClient(true);
+        ccService.save(currentClients);
+    }
+
+    //   Удалить клиента
+    @RequestMapping(value = "/psychologist/delete/{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteClient(@PathVariable("login") String login){
+        ccService.delete(ccService.findByClient(login).getID());
+
+    }
+
+    //   Получить список прошлых клиентов
+    @RequestMapping(value = "/psychologist/exclient{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Client> getExClients(@PathVariable("login") String login){
+        return service.getListExClients(login);
     }
 
     //   Получить все поля психолога по заданому логину

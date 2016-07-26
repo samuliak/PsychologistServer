@@ -29,6 +29,8 @@ public interface PsychologistService {
     // Работа с текущими клиентами
     List<Client> getAllClientsByDoctorLogin(String login);
     List<Client> getListPotencialClients(String login);
+    List<Client> getListExClients(String login);
     void saveClient(CurrentClients currentClients);
     void removeClient(String client_login);
+
 }

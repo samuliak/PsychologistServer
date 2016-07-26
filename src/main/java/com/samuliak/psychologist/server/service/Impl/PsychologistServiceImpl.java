@@ -29,6 +29,9 @@ public class PsychologistServiceImpl implements PsychologistService {
     @Autowired
     private CurrentClientsRepository ccRepository;
 
+    @Autowired
+    private ExClientsRepository ecRepository;
+
     public List<Psychologist> getAll() {
         List<Psychologist> list = new ArrayList<Psychologist>();
         for(Psychologist psychologist : psRepository.findAll()){
@@ -123,6 +126,16 @@ public class PsychologistServiceImpl implements PsychologistService {
         return list;
     }
 
+    public List<Client> getListExClients(String login) {
+        List<Client> list = new ArrayList<Client>();
+        for(ExClients item : ecRepository.findAll()){
+            if (item.getDoctor().equals(login)) {
+                list.add(clRepository.findByLogin(item.getClient()));
+            }
+        }
+        return list;
+    }
+
     public void saveClient(CurrentClients currentClients) {
         boolean bol = false;
         for(CurrentClients item : ccRepository.findAll()){
@@ -135,8 +148,10 @@ public class PsychologistServiceImpl implements PsychologistService {
 
     public void removeClient(String client_login) {
         for(CurrentClients item : ccRepository.findAll()){
-            if(item.getClient().equals(client_login))
+            if(item.getClient().equals(client_login)) {
+                ecRepository.save(new ExClients(item.getDoctor(), item.getClient()));
                 ccRepository.delete(item.getID());
+            }
         }
     }
 

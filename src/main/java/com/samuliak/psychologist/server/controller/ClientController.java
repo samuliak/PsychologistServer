@@ -94,7 +94,7 @@ public class ClientController {
     Список клиентов по психологу заданым логином
     Используется в меню психолога, когда он хочет посмотреть своих клиентов
      */
-    @RequestMapping(value = "/client/doctor/login{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "/client/doctor/login{name}", method = RequestMethod.POST)
     @ResponseBody
     public List<Client> getClientsByDoctorLogin(@PathVariable("name") String psLogin){
         return servicePs.getAllClientsByDoctorLogin(psLogin);
