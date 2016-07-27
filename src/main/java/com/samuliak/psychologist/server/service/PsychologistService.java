@@ -32,5 +32,14 @@ public interface PsychologistService {
     List<Client> getListExClients(String login);
     void saveClient(CurrentClients currentClients);
     void removeClient(String client_login);
+    // Работа с переписками
+    List<Tab> getAllTabByDoctor(String login);
+    List<Tab> getAllTabByClient(String login);
+    void saveTab(Tab tab);
+    void removeTab(int id);
+    // Работа с смс
+    List<Message> getAllMessageByTabId(int id);
+    void saveMessage(Message message);
+    void removeMessage(int id);
 
 }

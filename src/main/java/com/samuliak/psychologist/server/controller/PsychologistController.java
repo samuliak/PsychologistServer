@@ -2,7 +2,6 @@ package com.samuliak.psychologist.server.controller;
 
 import com.samuliak.psychologist.server.entity.*;
 import com.samuliak.psychologist.server.repository.CurrentClientsRepository;
-import com.samuliak.psychologist.server.service.ClientService;
 import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -160,4 +159,61 @@ public class PsychologistController {
         service.removeField(psId);
     }
 
+    /*
+    Работа с табами
+     */
+
+    //   Получить все табы по доктору
+    @RequestMapping(value = "/tab/doctor{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Tab> getAllTabsByDoctor(@PathVariable("login") String login){
+        return service.getAllTabByDoctor(login);
+    }
+
+    //   Получить все табы по клиенту
+    @RequestMapping(value = "/tab/client{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Tab> getAllTabsByClient(@PathVariable("login") String login){
+        return service.getAllTabByClient(login);
+    }
+
+    //   Сохранить таб
+    @RequestMapping(value = "/tab/save", method = RequestMethod.POST)
+    @ResponseBody
+    public void saveTab(@RequestBody Tab tab){
+        service.saveTab(tab);
+    }
+
+    //   Удалить таб
+    @RequestMapping(value = "/tab/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void removeTab(@PathVariable("id") int id){
+        service.removeTab(id);
+    }
+
+
+    /*
+    Работа с смс
+     */
+
+    //   Получить все смс по табу
+    @RequestMapping(value = "/mes/tab{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Message> getAllMessageByTab(@PathVariable("id") int id){
+        return service.getAllMessageByTabId(id);
+    }
+
+    //   Сохранить смс
+    @RequestMapping(value = "/mes/save", method = RequestMethod.POST)
+    @ResponseBody
+    public void saveMessage(@RequestBody Message mes){
+        service.saveMessage(mes);
+    }
+
+    //   Удалить смс
+    @RequestMapping(value = "/mes/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public void removeMessage(@PathVariable("id") int id){
+        service.removeMessage(id);
+    }
 }
