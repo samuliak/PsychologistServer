@@ -70,4 +70,5 @@ public class Message {
     public void setSender(String sender) {
         this.sender = sender;
     }
+
 }

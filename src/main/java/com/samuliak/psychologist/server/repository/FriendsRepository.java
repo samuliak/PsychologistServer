@@ -12,7 +12,7 @@ public interface FriendsRepository extends CrudRepository<Friends, Integer>{
             "and f.isFriend = true")
     List<Friends> findAllFriendsByLogin(@Param("login") String login);
 
-    @Query("select f from Friends f where f.doctor_login_one like :login and f.isFriend = true or f.doctor_login_two like :login " +
+    @Query("select f from Friends f where f.doctor_login_one like :login and f.isFriend = false or f.doctor_login_two like :login " +
             "and f.isFriend = false")
     List<Friends> findAllFriendsRequestByLogin(String login);
 

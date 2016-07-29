@@ -192,14 +192,7 @@ public class PsychologistServiceImpl implements PsychologistService {
     Работа с смс
      */
     public List<Message> getAllMessageByTabId(int id) {
-        List<Message> list = new ArrayList<Message>();
-        for(Message item : mesRepository.findAll()){
-            if (item.getTab_id()== id) {
-                list.add(item);
-            }
-        }
-        return list;
-        //return mesRepository.findAllByTabId(id);
+        return mesRepository.getAllMessageByTabId(id);
     }
 
     public void saveMessage(Message message) {

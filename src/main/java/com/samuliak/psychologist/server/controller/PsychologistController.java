@@ -6,6 +6,7 @@ import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -33,7 +34,7 @@ public class PsychologistController {
     }
 
     //   Получить психолога по ID
-    @RequestMapping(value = "/psychologist/id{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/psychologist/id{id}", method = RequestMethod.GET)
     @ResponseBody
     public Psychologist getPsychologistById(@PathVariable("id") int psId){
         return service.getById(psId);
@@ -204,10 +205,15 @@ public class PsychologistController {
     }
 
     //   Сохранить смс
-    @RequestMapping(value = "/mes/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/mes/save/text{text}/sender{sender}/tab{tab}", method = RequestMethod.POST)
     @ResponseBody
-    public void saveMessage(@RequestBody Message mes){
-        service.saveMessage(mes);
+    public void saveMessage(@PathVariable("text") String text, @PathVariable("sender") String sender,
+                            @PathVariable("tab") int tab){
+        Message message = new Message();
+        message.setText(text);
+        message.setSender(sender);
+        message.setTab_id(tab);
+        service.saveMessage(message);
     }
 
     //   Удалить смс
