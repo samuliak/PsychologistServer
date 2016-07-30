@@ -200,7 +200,7 @@ public class PsychologistServiceImpl implements PsychologistService {
 
     public void removeClient(String client_login) {
         CurrentClients currentClients = ccRepository.findByClient(client_login);
-        ExClients exClients = new ExClients(currentClients.getDoctor(), currentClients.getClient());
+        ExClients exClients = new ExClients("www", "qqq");
         ecRepository.save(exClients);
         ccRepository.delete(currentClients);
     }
