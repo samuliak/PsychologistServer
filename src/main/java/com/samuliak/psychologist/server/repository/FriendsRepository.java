@@ -14,6 +14,6 @@ public interface FriendsRepository extends CrudRepository<Friends, Integer>{
 
     @Query("select f from Friends f where f.doctor_login_one like :login and f.isFriend = false or f.doctor_login_two like :login " +
             "and f.isFriend = false")
-    List<Friends> findAllFriendsRequestByLogin(String login);
+    List<Friends> findAllFriendsRequestByLogin(@Param("login") String login);
 
 }

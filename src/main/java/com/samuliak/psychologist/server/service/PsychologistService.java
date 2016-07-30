@@ -17,11 +17,14 @@ public interface PsychologistService {
     Psychologist findByLogin(String login);
     List<Psychologist> findAllByName(@Param("name") String name);
     List<Psychologist> findAllBySurname(@Param("name") String name);
-    List<Field> getAllFieldsById(int id);
     // Работа с друзьями
-    List<Friends> getAllFriends(String login);
-    List<Friends> getAllFriendsRequest(String login);
-    void agreeFriend(int id);
+    List<Psychologist> getAllFriends(@Param("login") String login);
+    List<Psychologist> getAllFriendsRequest(@Param("login") String login);
+    void createFriend(String log1, String log2);
+    void agreeFriend(String log, String login);
+    void deleteFriend(String log, String login);
+    // Работа с полями
+    List<Field> getAllFieldsById(int id);
     void saveField(Field field);
     void removeField(int id);
     // Онлайн

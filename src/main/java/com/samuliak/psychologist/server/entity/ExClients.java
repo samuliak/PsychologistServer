@@ -1,7 +1,5 @@
 package com.samuliak.psychologist.server.entity;
 
-import com.sun.istack.internal.Nullable;
-
 import javax.persistence.*;
 
 @Entity
@@ -20,7 +18,7 @@ public class ExClients {
     @Column(nullable = false)
     private String doctor;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String client;
 
     public ExClients(){}

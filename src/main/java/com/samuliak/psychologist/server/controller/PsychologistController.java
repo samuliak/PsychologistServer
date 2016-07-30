@@ -6,7 +6,6 @@ import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -114,30 +113,49 @@ public class PsychologistController {
         return service.getAllFieldsById(id);
     }
 
+
+
     /*
     Получить всех друзей психолога
      */
-    @RequestMapping(value = "/friends/{login}", method = RequestMethod.GET)
+    @RequestMapping(value = "/friends/{login}", method = RequestMethod.POST)
     @ResponseBody
-    public List<Friends> getAllFriendsByLogin(@PathVariable("login") String login){
+    public List<Psychologist> getAllFriendsByLogin(@PathVariable("login") String login){
         return service.getAllFriends(login);
     }
 
-    /*
-    Получить все запросы на дружбу
-     */
-    @RequestMapping(value = "/friends/request{login}", method = RequestMethod.GET)
+
+    //   Получить все запросы на дружбу
+    @RequestMapping(value = "/friends/request/{login}", method = RequestMethod.POST)
     @ResponseBody
-    public List<Friends> getAllFriendsRequestByLogin(@PathVariable("login") String login){
+    public List<Psychologist> getAllFriendsRequestByLogin(@PathVariable("login") String login){
         return service.getAllFriendsRequest(login);
     }
 
-    //Подтвердить дружбу
-    @RequestMapping(value = "/friends/agree{id}", method = RequestMethod.GET)
+    // Добавить дружбу
+    @RequestMapping(value = "/friends/first{log}/two{login}", method = RequestMethod.POST)
     @ResponseBody
-    public void agreeFriend(@PathVariable("id") int id){
-        service.agreeFriend(id);
+    public void createFriend(@PathVariable("log") String log,
+                                                          @PathVariable("login") String login){
+        service.createFriend(log, login);
     }
+
+    //   Подтвердить дружбу
+    @RequestMapping(value = "/friends/agree{log}/two{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public void agreeFriend(@PathVariable("log") String log,
+                            @PathVariable("login") String login){
+        service.agreeFriend(log, login);
+    }
+
+    // Удалить друга
+    @RequestMapping(value = "/friends/delete{log}/two{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public void deleteFriend(@PathVariable("log") String log,
+                            @PathVariable("login") String login){
+        service.deleteFriend(log, login);
+    }
+
 
     //Выход из онлайна
     @RequestMapping(value = "/psychologist/online/false{login}", method = RequestMethod.POST)

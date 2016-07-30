@@ -12,9 +12,7 @@ public class Field {
     @Column(name = "id")
     private Integer ID;
 
-    @ManyToOne
-    @JoinColumn(name = "psyh_id", nullable = false)
-    private Psychologist psyh;
+    private String doctor;
 
     @Column(nullable = false)
     private String field_ask;
@@ -24,8 +22,8 @@ public class Field {
     public Field(){
     }
 
-    public Field(Psychologist psyh, String field_ask, String field_answer) {
-        this.psyh = psyh;
+    public Field(String doctor, String field_ask, String field_answer) {
+        this.doctor = doctor;
         this.field_ask = field_ask;
         this.field_answer = field_answer;
     }
@@ -38,12 +36,12 @@ public class Field {
         this.ID = ID;
     }
 
-    public Psychologist getPsyh() {
-        return psyh;
+    public String getDoctor() {
+        return doctor;
     }
 
-    public void setPsyh(Psychologist psyh) {
-        this.psyh = psyh;
+    public void setDoctor(String doctor) {
+        this.doctor = doctor;
     }
 
     public String getField_ask() {

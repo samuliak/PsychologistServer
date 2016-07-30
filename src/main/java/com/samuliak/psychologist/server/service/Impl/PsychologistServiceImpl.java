@@ -81,19 +81,65 @@ public class PsychologistServiceImpl implements PsychologistService {
         return list;
     }
 
-    public List<Friends> getAllFriends(String login) {
-        return frRepository.findAllFriendsByLogin(login);
+
+    /*
+    Работа с друзьями
+     */
+    public List<Psychologist> getAllFriends(String login) {
+        List<Friends> list = frRepository.findAllFriendsByLogin(login);
+        return initListForFriendList(list);
     }
 
-    public List<Friends> getAllFriendsRequest(String login) {
-        return frRepository.findAllFriendsRequestByLogin(login);
+    public List<Psychologist> getAllFriendsRequest(String login) {
+        List<Friends> list = frRepository.findAllFriendsRequestByLogin(login);
+        return initListForFriendList(list);
     }
 
-    public void agreeFriend(int id) {
-        Friends friends = frRepository.findOne(id);
-        friends.setFriend(true);
+    public void createFriend(String log1, String log2) {
+        Friends friends = new Friends(log1, log2);
         frRepository.save(friends);
     }
+
+    private List<Psychologist> initListForFriendList(List<Friends> list) {
+        List<Psychologist> doctors = new ArrayList<Psychologist>();
+        Psychologist doctor;
+        for(Friends item : list){
+            doctor = psRepository.findByLogin(item.getDoctor_login_two());
+            doctor.setPassword("");
+            doctors.add(doctor);
+        }
+        return doctors;
+    }
+
+    public void agreeFriend(String log, String login) {
+        List<Friends> list = frRepository.findAllFriendsRequestByLogin(log);
+        for(Friends item : list){
+            if (item.getDoctor_login_two().equals(login)){
+                item.setFriend(true);
+                frRepository.save(item);
+            }
+        }
+    }
+
+    public void deleteFriend(String log, String login) {
+        List<Friends> list = frRepository.findAllFriendsRequestByLogin(log);
+        for(Friends item : list){
+            if (item.getDoctor_login_two().equals(login)){
+                frRepository.delete(item.getID());
+            }
+        }
+
+        List<Friends> list2 = frRepository.findAllFriendsByLogin(log);
+        for(Friends item : list2){
+            if (item.getDoctor_login_two().equals(login)){
+                frRepository.delete(item.getID());
+            }
+        }
+    }
+
+    /*
+    Работа с полями ( не все )
+     */
 
     public void saveField(Field field) {
         fdRepository.save(field);
@@ -153,12 +199,10 @@ public class PsychologistServiceImpl implements PsychologistService {
     }
 
     public void removeClient(String client_login) {
-        for(CurrentClients item : ccRepository.findAll()){
-            if(item.getClient().equals(client_login)) {
-                ecRepository.save(new ExClients(item.getDoctor(), item.getClient()));
-                ccRepository.delete(item.getID());
-            }
-        }
+        CurrentClients currentClients = ccRepository.findByClient(client_login);
+        ExClients exClients = new ExClients(currentClients.getDoctor(), currentClients.getClient());
+        ecRepository.save(exClients);
+        ccRepository.delete(currentClients);
     }
 
     /*
