@@ -122,6 +122,17 @@ public class ClientController {
     }
 
 
+    /*
+    Анкета
+     */
+
+    //   Получить анкету по логину
+    @RequestMapping(value = "/questionnaire/{login}", method = RequestMethod.GET)
+    @ResponseBody
+    public Questionnaire getQuestionnaireByLogin(@PathVariable("login") String login){
+        return serviceCl.getQuestionnaireByLogin(login);
+    }
+
     //   Сохранить анкету
     @RequestMapping(value = "/questionnaire/save", method = RequestMethod.POST)
     @ResponseBody
@@ -130,9 +141,9 @@ public class ClientController {
     }
 
     //   Удалить анкету
-    @RequestMapping(value = "/questionnaire/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/questionnaire/{login}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void removeQuestionnaire(@PathVariable("id") int id){
-        serviceCl.removeQuestionnaireByClientId(id);
+    public void removeQuestionnaire(@PathVariable("login") String login){
+        serviceCl.removeQuestionnaireByClientLogin(login);
     }
 }

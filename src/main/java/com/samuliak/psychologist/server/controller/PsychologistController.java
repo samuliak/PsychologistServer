@@ -117,11 +117,18 @@ public class PsychologistController {
     }
 
 
-    //   Получить все запросы на дружбу
-    @RequestMapping(value = "/friends/request/{login}", method = RequestMethod.POST)
+    //   Получить все запросы на дружбу, входные заявки
+    @RequestMapping(value = "/friends/inputrequest/{login}", method = RequestMethod.POST)
     @ResponseBody
     public List<Psychologist> getAllFriendsRequestByLogin(@PathVariable("login") String login){
-        return service.getAllFriendsRequest(login);
+        return service.getAllFriendsInputRequest(login);
+    }
+
+    //   Получить все запросы на дружбу, исходные заявки
+    @RequestMapping(value = "/friends/outputrequest/{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Psychologist> getAllFriendsOutputRequest(@PathVariable("login") String login){
+        return service.getAllFriendsOutputRequest(login);
     }
 
     // Добавить дружбу
@@ -148,6 +155,12 @@ public class PsychologistController {
         service.deleteFriend(log, login);
     }
 
+    // Список доктороа, которые в онлайне
+    @RequestMapping(value = "/psychologist/online", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Psychologist> getAllDoctorWhoIsOnline(){
+        return service.getAllDoctorsWhoIsOnline();
+    }
 
     //Выход из онлайна
     @RequestMapping(value = "/psychologist/online/false{login}", method = RequestMethod.POST)
@@ -215,13 +228,15 @@ public class PsychologistController {
     }
 
     //   Сохранить смс
-    @RequestMapping(value = "/mes/save/text{text}/sender{sender}/tab{tab}", method = RequestMethod.POST)
+    @RequestMapping(value = "/mes/save/text{text}/sender{sender},full{full_sender}/tab{tab}", method = RequestMethod.POST)
     @ResponseBody
     public void saveMessage(@PathVariable("text") String text, @PathVariable("sender") String sender,
+                            @PathVariable("full_sender") String full_sender,
                             @PathVariable("tab") int tab){
         Message message = new Message();
         message.setText(text);
         message.setSender(sender);
+        message.setFull_sender(full_sender);
         message.setTab_id(tab);
         service.saveMessage(message);
     }

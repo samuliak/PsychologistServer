@@ -14,4 +14,7 @@ public interface PsychologistRepository extends CrudRepository<Psychologist, Int
     List<Psychologist> findAllByName(@Param("name")String name);
     @Query("select p from Psychologist p where p.surname like :name")
     List<Psychologist> findAllBySurname(@Param("name")String name);
+
+    @Query("select p from Psychologist p where p.online = true")
+    List<Psychologist> getAllDoctorsWhoIsOnline();
 }

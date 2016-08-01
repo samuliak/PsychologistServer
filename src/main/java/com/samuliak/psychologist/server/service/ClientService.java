@@ -24,9 +24,13 @@ public interface ClientService {
     List<Client> findAllByDoctor(@Param("login") String login);
     List<Client> findAllByName(@Param("name") String name);
     List<Client> findAllBySurname(@Param("name") String name);
+    // Журнал
     List<Journal> getAllJournalsByLogin(String id);
     void saveJournal(Journal journal);
     void removeJournal(int id);
+
+    // Анкета
+    Questionnaire getQuestionnaireByLogin(String login);
     void saveQuestionnaire(Questionnaire questionnaire);
-    void removeQuestionnaireByClientId(int id);
+    void removeQuestionnaireByClientLogin(String login);
 }

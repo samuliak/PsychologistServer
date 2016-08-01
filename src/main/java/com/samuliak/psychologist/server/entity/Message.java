@@ -19,16 +19,19 @@ public class Message {
 
     private String sender;
 
+    private String full_sender;
+
     @Column(nullable = false)
     private int tab_id;
 
     public Message(){}
 
-    public Message(String text, Date creation_date, int tab_id, String sender) {
+    public Message(String text, Date creation_date, int tab_id, String sender, String full) {
         this.text = text;
         this.creation_date = creation_date;
         this.tab_id = tab_id;
         this.sender = sender;
+        this.full_sender = full;
     }
 
     public Integer getID() {
@@ -71,4 +74,11 @@ public class Message {
         this.sender = sender;
     }
 
+    public String getFull_sender() {
+        return full_sender;
+    }
+
+    public void setFull_sender(String full_sender) {
+        this.full_sender = full_sender;
+    }
 }

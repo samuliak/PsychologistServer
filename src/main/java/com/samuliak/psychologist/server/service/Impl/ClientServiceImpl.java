@@ -84,14 +84,25 @@ public class ClientServiceImpl implements ClientService{
         return clRepository.findAllBySurname(name);
     }
 
+    /*
+    Анкета
+     */
+
+    public Questionnaire getQuestionnaireByLogin(String login) {
+        return qsRepository.findByclient(login);
+    }
 
     public void saveQuestionnaire(Questionnaire questionnaire) {
         qsRepository.save(questionnaire);
     }
 
-    public void removeQuestionnaireByClientId(int id) {
-        qsRepository.delete(qsRepository.findByclientid(id).getID());
+    public void removeQuestionnaireByClientLogin(String login) {
+        qsRepository.delete(qsRepository.findByclient(login).getID());
     }
+
+    /*
+    Журнал
+     */
 
     public List<Journal> getAllJournalsByLogin(String login) {
         List<Journal> list = new ArrayList<Journal>();
@@ -109,4 +120,5 @@ public class ClientServiceImpl implements ClientService{
     public void removeJournal(int id) {
         jlRepository.delete(id);
     }
+
 }

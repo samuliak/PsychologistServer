@@ -12,7 +12,8 @@ public class Questionnaire {
     @Column(name = "id")
     private Integer ID;
 
-    private int clientid;
+    @Column(unique = true)
+    private String client;
 
     private String ask1;
     private String ask2;
@@ -40,7 +41,7 @@ public class Questionnaire {
     public Questionnaire(){
     }
 
-    public Questionnaire(int clientid, String ask1, String ask2, int ask3,
+    public Questionnaire(String client, String ask1, String ask2, int ask3,
                          int ask4, String ask5, String ask6,
                          String ask7_1, String ask7_2,
                          String ask8, String ask9, String ask10,
@@ -48,7 +49,7 @@ public class Questionnaire {
                          String ask12, String ask13, String ask14,
                          String ask15, String ask16, String ask17,
                          String ask18, String ask19, String ask20) {
-        this.clientid = clientid;
+        this.client = client;
         this.ask1 = ask1;
         this.ask2 = ask2;
         this.ask3 = ask3;
@@ -257,11 +258,11 @@ public class Questionnaire {
         this.ID = ID;
     }
 
-    public int getClientid() {
-        return clientid;
+    public String getClientid() {
+        return client;
     }
 
-    public void setClientid(int clientid) {
-        this.clientid = clientid;
+    public void setClientid(String clientid) {
+        this.client = clientid;
     }
 }

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class PsychologistServiceImpl implements PsychologistService {
@@ -65,6 +64,11 @@ public class PsychologistServiceImpl implements PsychologistService {
         return psychologist;
     }
 
+    // Список докторов которые онлайн
+    public List<Psychologist> getAllDoctorsWhoIsOnline() {
+        return psRepository.getAllDoctorsWhoIsOnline();
+    }
+
     public List<Psychologist> findAllByName(@Param("name") String name) {
         return psRepository.findAllByName(name);
     }
@@ -90,8 +94,13 @@ public class PsychologistServiceImpl implements PsychologistService {
         return initListForFriendList(list);
     }
 
-    public List<Psychologist> getAllFriendsRequest(String login) {
-        List<Friends> list = frRepository.findAllFriendsRequestByLogin(login);
+    public List<Psychologist> getAllFriendsInputRequest(String login) {
+        List<Friends> list = frRepository.findAllFriendsInputRequestByLogin(login);
+        return initListForFriendList(list);
+    }
+
+    public List<Psychologist> getAllFriendsOutputRequest(@Param("login") String login) {
+        List<Friends> list = frRepository.findAllFriendsOutputRequestByLogin(login);
         return initListForFriendList(list);
     }
 
@@ -112,7 +121,7 @@ public class PsychologistServiceImpl implements PsychologistService {
     }
 
     public void agreeFriend(String log, String login) {
-        List<Friends> list = frRepository.findAllFriendsRequestByLogin(log);
+        List<Friends> list = frRepository.findAllFriendsOutputRequestByLogin(log);
         for(Friends item : list){
             if (item.getDoctor_login_two().equals(login)){
                 item.setFriend(true);
@@ -122,7 +131,7 @@ public class PsychologistServiceImpl implements PsychologistService {
     }
 
     public void deleteFriend(String log, String login) {
-        List<Friends> list = frRepository.findAllFriendsRequestByLogin(log);
+        List<Friends> list = frRepository.findAllFriendsOutputRequestByLogin(log);
         for(Friends item : list){
             if (item.getDoctor_login_two().equals(login)){
                 frRepository.delete(item.getID());
@@ -200,7 +209,7 @@ public class PsychologistServiceImpl implements PsychologistService {
 
     public void removeClient(String client_login) {
         CurrentClients currentClients = ccRepository.findByClient(client_login);
-        ExClients exClients = new ExClients("www", "qqq");
+        ExClients exClients = new ExClients(currentClients.getDoctor(), currentClients.getClient());
         ecRepository.save(exClients);
         ccRepository.delete(currentClients);
     }

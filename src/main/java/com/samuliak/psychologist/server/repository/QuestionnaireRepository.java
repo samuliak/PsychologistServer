@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface QuestionnaireRepository extends CrudRepository<Questionnaire, Integer> {
-    Questionnaire findByclientid(int id);
+    Questionnaire findByclient(String login);
 }

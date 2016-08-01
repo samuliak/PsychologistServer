@@ -19,7 +19,8 @@ public interface PsychologistService {
     List<Psychologist> findAllBySurname(@Param("name") String name);
     // Работа с друзьями
     List<Psychologist> getAllFriends(@Param("login") String login);
-    List<Psychologist> getAllFriendsRequest(@Param("login") String login);
+    List<Psychologist> getAllFriendsInputRequest(@Param("login") String login);
+    List<Psychologist> getAllFriendsOutputRequest(@Param("login") String login);
     void createFriend(String log1, String log2);
     void agreeFriend(String log, String login);
     void deleteFriend(String log, String login);
@@ -29,6 +30,7 @@ public interface PsychologistService {
     void removeField(int id);
     // Онлайн
     void doctorOnlineFalse(String login);
+    List<Psychologist> getAllDoctorsWhoIsOnline();
     // Работа с текущими клиентами
     List<Client> getAllClientsByDoctorLogin(String login);
     List<Client> getListPotencialClients(String login);
