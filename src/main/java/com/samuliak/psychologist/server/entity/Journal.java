@@ -13,11 +13,11 @@ public class Journal {
     @Column(name = "id")
     private Integer ID;
 
-    private String clientLogin;
+    private String client;
 
     @Column(name = "creation_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate = new Date();
+    private Date creation_date = new Date();
 
     private String note;
 
@@ -25,8 +25,8 @@ public class Journal {
     }
 
     public Journal(String clientLogin, Date creationDate, String note) {
-        this.clientLogin = clientLogin;
-        this.creationDate = creationDate;
+        this.client = clientLogin;
+        this.creation_date = creationDate;
         this.note = note;
     }
 
@@ -39,19 +39,19 @@ public class Journal {
     }
 
     public String getClient() {
-        return clientLogin;
+        return client;
     }
 
     public void setClient(String client) {
-        this.clientLogin = client;
+        this.client = client;
     }
 
     public Date getCreationDate() {
-        return creationDate;
+        return creation_date;
     }
 
     public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+        this.creation_date = creationDate;
     }
 
     public String getNote() {

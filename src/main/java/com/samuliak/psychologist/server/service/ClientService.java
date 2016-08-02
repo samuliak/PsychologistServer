@@ -18,16 +18,13 @@ public interface ClientService {
     Client getById(int id);
     void remove(int id);
     void save(Client client);
-    void savePsychologist(int idClient, String login);
-    void removePsychologist(int idClient);
     Client findByLogin(String login);
-    List<Client> findAllByDoctor(@Param("login") String login);
     List<Client> findAllByName(@Param("name") String name);
     List<Client> findAllBySurname(@Param("name") String name);
+
     // Журнал
     List<Journal> getAllJournalsByLogin(String id);
     void saveJournal(Journal journal);
-    void removeJournal(int id);
 
     // Анкета
     Questionnaire getQuestionnaireByLogin(String login);

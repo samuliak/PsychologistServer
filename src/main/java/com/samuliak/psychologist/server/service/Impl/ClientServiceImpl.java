@@ -51,29 +51,9 @@ public class ClientServiceImpl implements ClientService{
         clRepository.save(client);
     }
 
-    public void savePsychologist(int idClient, String idPs) {
-        Client client = clRepository.findOne(idClient);
-//        client.setDoctor(idPs);
-        clRepository.save(client);
-    }
-
-    public void removePsychologist(int idClient) {
-//        clRepository.findOne(idClient).setDoctor(null);
-    }
 
     public Client findByLogin(String login) {
         return clRepository.findByLogin(login);
-    }
-
-    public List<Client> findAllByDoctor(@Param("login") String login) {
-        List<Client> list = new ArrayList<Client>();
-//        for(Client client : clRepository.findAll()){
-//            System.out.println(client.getDoctor());
-//            if (client.getDoctor().equals(login))
-//                list.add(client);
-//
-//        }
-        return list;
     }
 
     public List<Client> findAllByName(@Param("name") String name) {
@@ -105,20 +85,11 @@ public class ClientServiceImpl implements ClientService{
      */
 
     public List<Journal> getAllJournalsByLogin(String login) {
-        List<Journal> list = new ArrayList<Journal>();
-        for(Journal journal : jlRepository.findAll()){
-            if (login.equals(journal.getClient()))
-                list.add(journal);
-        }
-        return list;
+        return jlRepository.findAllByClientAndSort(login);
     }
 
     public void saveJournal(Journal journal) {
         jlRepository.save(journal);
-    }
-
-    public void removeJournal(int id) {
-        jlRepository.delete(id);
     }
 
 }

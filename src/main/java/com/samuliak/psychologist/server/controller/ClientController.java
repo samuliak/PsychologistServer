@@ -100,27 +100,6 @@ public class ClientController {
         return servicePs.getAllClientsByDoctorLogin(psLogin);
     }
 
-    //   Получить все журналы по логину
-    @RequestMapping(value = "/client/journal{login}", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Journal> getAllJournalsByLogin(@PathVariable("login") String login){
-        return serviceCl.getAllJournalsByLogin(login);
-    }
-
-    //   Сохранить журнал
-    @RequestMapping(value = "/journal/save", method = RequestMethod.POST)
-    @ResponseBody
-    public void saveJournal(@RequestBody Journal journal){
-        serviceCl.saveJournal(journal);
-    }
-
-    //   Удалить журнал
-    @RequestMapping(value = "/journal/{id}", method = RequestMethod.DELETE)
-    @ResponseBody
-    public void removeJournal(@PathVariable("id") int id){
-        serviceCl.removeJournal(id);
-    }
-
 
     /*
     Анкета
@@ -146,4 +125,26 @@ public class ClientController {
     public void removeQuestionnaire(@PathVariable("login") String login){
         serviceCl.removeQuestionnaireByClientLogin(login);
     }
+
+    /*
+    Журнал
+     */
+
+    //   Получить все журналы по логину
+    @RequestMapping(value = "/client/journal{login}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Journal> getAllJournalsByLogin(@PathVariable("login") String login){
+        return serviceCl.getAllJournalsByLogin(login);
+    }
+
+    //   Сохранить журнал
+    @RequestMapping(value = "/journal/save/note{note}/client{client}", method = RequestMethod.POST)
+    @ResponseBody
+    public void saveJournal(@PathVariable("note") String note, @PathVariable("client") String client){
+        Journal journal = new Journal();
+        journal.setClient(client);
+        journal.setNote(note);
+        serviceCl.saveJournal(journal);
+    }
+
 }
