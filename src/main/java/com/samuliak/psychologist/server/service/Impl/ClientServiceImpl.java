@@ -73,11 +73,9 @@ public class ClientServiceImpl implements ClientService{
     }
 
     public void saveQuestionnaire(Questionnaire questionnaire) {
+        Questionnaire item = qsRepository.findByclient(questionnaire.getClientid());
+        qsRepository.delete(item);
         qsRepository.save(questionnaire);
-    }
-
-    public void removeQuestionnaireByClientLogin(String login) {
-        qsRepository.delete(qsRepository.findByclient(login).getID());
     }
 
     /*

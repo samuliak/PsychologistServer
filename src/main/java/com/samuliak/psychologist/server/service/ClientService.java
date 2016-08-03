@@ -29,5 +29,4 @@ public interface ClientService {
     // Анкета
     Questionnaire getQuestionnaireByLogin(String login);
     void saveQuestionnaire(Questionnaire questionnaire);
-    void removeQuestionnaireByClientLogin(String login);
 }
