@@ -37,12 +37,44 @@ public class PsychologistServiceImpl implements PsychologistService {
     @Autowired
     private MessageRepository mesRepository;
 
+    public List<Psychologist> getHalfHundredDoctors(){
+        List<Psychologist> list = getAll();
+        List<Psychologist> random_list = new ArrayList<Psychologist>();
+        if (list.size() > 50) {
+            int size = list.size();
+            for (int i = 0; i < 50; i++) {
+                random_list.add(list.get((int) (Math.random() * size)));
+            }
+            return random_list;
+        } else
+            return list;
+    }
+
     public List<Psychologist> getAll() {
         List<Psychologist> list = new ArrayList<Psychologist>();
         for(Psychologist psychologist : psRepository.findAll()){
             list.add(psychologist);
         }
         return list;
+    }
+
+    public List<Psychologist> getAllByParameters(String country, String city, String competence) {
+        if (country.length() > 0 && city.length() > 0 && competence.length() > 0)
+            return psRepository.findByCountryCityCompetence(country, city, competence);
+        else if (country.length() > 0 && city.length() > 0)
+            return psRepository.findByCountryCity(country, city);
+        else if (country.length() > 0 && competence.length() > 0)
+            return psRepository.findByCountryCompetence(country, competence);
+        else if (city.length() > 0 && competence.length() > 0)
+            return psRepository.findByCityCompetence(city, competence);
+        else if (competence.length() > 0 )
+            return psRepository.findByCompetence(competence);
+        else if (country.length() > 0 )
+            return psRepository.findByCountry(country);
+        else if (city.length() > 0 )
+            return psRepository.findByCity(city);
+
+        return getAll();
     }
 
     public Psychologist getById(int id) {

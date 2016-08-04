@@ -23,6 +23,7 @@ public class Psychologist {
     private String country;
     private String city;
     private String interest;
+    private String prof_interest;
     private String place_of_work;
     private String university;
     private String specialization;
@@ -34,8 +35,8 @@ public class Psychologist {
     }
 
     public Psychologist(String login, String name, String surname, String password, int age, String country,
-                        String city, String interest, String place_of_work, String university, String specialization,
-                        String competence, String direction_of_work) {
+                        String city, String interest, String prof_interest, String place_of_work, String university,
+                        String specialization, String competence, String direction_of_work) {
         this.login = login;
         this.name = name;
         this.surname = surname;
@@ -44,6 +45,7 @@ public class Psychologist {
         this.country = country;
         this.city = city;
         this.interest = interest;
+        this.prof_interest = prof_interest;
         this.place_of_work = place_of_work;
         this.university = university;
         this.specialization = specialization;
@@ -166,5 +168,13 @@ public class Psychologist {
 
     public void setOnline(boolean online) {
         this.online = online;
+    }
+
+    public String getProf_interest() {
+        return prof_interest;
+    }
+
+    public void setProf_interest(String prof_interest) {
+        this.prof_interest = prof_interest;
     }
 }

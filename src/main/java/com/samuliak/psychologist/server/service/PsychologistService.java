@@ -11,6 +11,8 @@ public interface PsychologistService {
     а так же с его полями (класс Field)
      */
     List<Psychologist> getAll();
+    List<Psychologist> getAllByParameters(String country, String city, String competence);
+    List<Psychologist> getHalfHundredDoctors();
     Psychologist getById(int id);
     void remove(int id);
     void save(Psychologist psyh);

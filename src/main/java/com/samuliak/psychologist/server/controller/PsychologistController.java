@@ -23,13 +23,31 @@ public class PsychologistController {
     @Autowired
     private CurrentClientsRepository ccService;
 
-
+        /*
+        Работа с психологами
+        */
 
     //   Получить всех психологов
-    @RequestMapping(value = "/psychologist", method = RequestMethod.GET)
+    @RequestMapping(value = "/psychologist", method = RequestMethod.POST)
     @ResponseBody
     public List<Psychologist> getAllPsychologist(){
         return service.getAll();
+    }
+
+    //   Получить всех психологов за параметрами
+    @RequestMapping(value = "/psychologist/country{country}/city{city}/competence{competence}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Psychologist> getAllPsychologistByParameters(@PathVariable("country") String country,
+                                                             @PathVariable("city") String city,
+                                                             @PathVariable("competence") String competence){
+        return service.getAllByParameters(country, city, competence);
+    }
+
+    //   Получить рандомно 50 психологов
+    @RequestMapping(value = "/psychologist/random", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Psychologist> getAllPsychologistRandom(){
+        return service.getHalfHundredDoctors();
     }
 
     //   Получить психолога по ID
@@ -67,6 +85,10 @@ public class PsychologistController {
         service.save(psychologist);
     }
 
+
+    /*
+    Клиенты
+     */
     //   Удалить психолога
     @RequestMapping(value = "/psychologist/{id}", method = RequestMethod.DELETE)
     @ResponseBody
