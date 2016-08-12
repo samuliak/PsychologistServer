@@ -19,10 +19,11 @@ public class Psychologist {
     private String surname;
     @Column(nullable = false)
     private String password;
-    private int age;
+    private int experience;
+    private String sex;
+    private String birthday;
     private String country;
     private String city;
-    private String interest;
     private String prof_interest;
     private String place_of_work;
     private String university;
@@ -34,17 +35,20 @@ public class Psychologist {
     public Psychologist() {
     }
 
-    public Psychologist(String login, String name, String surname, String password, int age, String country,
-                        String city, String interest, String prof_interest, String place_of_work, String university,
-                        String specialization, String competence, String direction_of_work) {
+    public Psychologist(String login, String name, String surname, String password,
+                        int experience, String sex, String birthday, String country,
+                        String city, String prof_interest, String place_of_work,
+                        String university, String specialization, String competence,
+                        String direction_of_work) {
         this.login = login;
         this.name = name;
         this.surname = surname;
         this.password = password;
-        this.age = age;
+        this.experience = experience;
+        this.sex = sex;
+        this.birthday = birthday;
         this.country = country;
         this.city = city;
-        this.interest = interest;
         this.prof_interest = prof_interest;
         this.place_of_work = place_of_work;
         this.university = university;
@@ -56,6 +60,10 @@ public class Psychologist {
 
     public Integer getID() {
         return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
     }
 
     public String getLogin() {
@@ -74,6 +82,14 @@ public class Psychologist {
         this.name = name;
     }
 
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
     public String getSurname() {
         return surname;
     }
@@ -90,12 +106,20 @@ public class Psychologist {
         this.password = password;
     }
 
-    public int getAge() {
-        return age;
+    public int getExperience() {
+        return experience;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getCountry() {
@@ -114,12 +138,12 @@ public class Psychologist {
         this.city = city;
     }
 
-    public String getInterest() {
-        return interest;
+    public String getProf_interest() {
+        return prof_interest;
     }
 
-    public void setInterest(String interest) {
-        this.interest = interest;
+    public void setProf_interest(String prof_interest) {
+        this.prof_interest = prof_interest;
     }
 
     public String getPlace_of_work() {
@@ -168,13 +192,5 @@ public class Psychologist {
 
     public void setOnline(boolean online) {
         this.online = online;
-    }
-
-    public String getProf_interest() {
-        return prof_interest;
-    }
-
-    public void setProf_interest(String prof_interest) {
-        this.prof_interest = prof_interest;
     }
 }

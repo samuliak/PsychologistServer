@@ -59,16 +59,43 @@ public class PsychologistServiceImpl implements PsychologistService {
     }
 
     public List<Psychologist> getAllByParameters(String country, String city, String competence) {
-        if (country.length() > 0 && city.length() > 0 && competence.length() > 0)
-            return psRepository.findByCountryCityCompetence(country, city, competence);
+        if (country.length() > 0 && city.length() > 0 && competence.length() > 0) {
+            List<Psychologist> list = psRepository.findByCountryCity(country, city);
+            List<Psychologist> ll = new ArrayList<Psychologist>();
+            for(Psychologist item : list){
+                if (item.getCompetence().contains(competence))
+                    ll.add(item);
+            }
+            return ll;
+        }
         else if (country.length() > 0 && city.length() > 0)
             return psRepository.findByCountryCity(country, city);
-        else if (country.length() > 0 && competence.length() > 0)
-            return psRepository.findByCountryCompetence(country, competence);
-        else if (city.length() > 0 && competence.length() > 0)
-            return psRepository.findByCityCompetence(city, competence);
-        else if (competence.length() > 0 )
-            return psRepository.findByCompetence(competence);
+        else if (country.length() > 0 && competence.length() > 0) {
+            List<Psychologist> list = psRepository.findByCountry(country);
+            List<Psychologist> ll = new ArrayList<Psychologist>();
+            for(Psychologist item : list){
+                if (item.getCompetence().contains(competence))
+                    ll.add(item);
+            }
+            return ll;
+        }
+        else if (city.length() > 0 && competence.length() > 0) {
+            List<Psychologist> list = psRepository.findByCity(city);
+            List<Psychologist> ll = new ArrayList<Psychologist>();
+            for(Psychologist item : list){
+                if (item.getCompetence().contains(competence))
+                    ll.add(item);
+            }
+            return ll;
+        }
+        else if (competence.length() > 0 ) {
+            List<Psychologist> ll = new ArrayList<Psychologist>();
+            for(Psychologist item : psRepository.findAll()){
+                if (item.getCompetence().contains(competence))
+                    ll.add(item);
+            }
+            return ll;
+        }
         else if (country.length() > 0 )
             return psRepository.findByCountry(country);
         else if (city.length() > 0 )

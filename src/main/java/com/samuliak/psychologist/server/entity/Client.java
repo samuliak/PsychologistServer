@@ -21,7 +21,8 @@ public class Client {
     @Column(nullable = false)
     private String password;
 
-    private int age;
+    private String birthday;
+    private String sex;
     private String country;
     private String city;
     private String interest;
@@ -29,12 +30,14 @@ public class Client {
     public Client(){
     }
 
-    public Client(String login, String first_name, String second_name, String password, int age, String country, String city, String interest) {
+    public Client(String login, String name, String surname, String password,
+                  String birthday, String sex, String country, String city, String interest) {
         this.login = login;
-        this.name = first_name;
-        this.surname = second_name;
+        this.name = name;
+        this.surname = surname;
         this.password = password;
-        this.age = age;
+        this.birthday = birthday;
+        this.sex = sex;
         this.country = country;
         this.city = city;
         this.interest = interest;
@@ -80,12 +83,20 @@ public class Client {
         this.password = password;
     }
 
-    public int getAge() {
-        return age;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getCountry() {

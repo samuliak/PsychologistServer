@@ -5,7 +5,12 @@ import com.samuliak.psychologist.server.repository.CurrentClientsRepository;
 import com.samuliak.psychologist.server.service.PsychologistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -223,6 +228,19 @@ public class PsychologistController {
         return service.getAllTabByClient(login);
     }
 
+    //   Найти таб по логинам
+    @RequestMapping(value = "/tab/client{client}/doctor{doctor}", method = RequestMethod.POST)
+    @ResponseBody
+    public Tab getTabByLogins(@PathVariable("client") String client,
+                                        @PathVariable("doctor") String doctor){
+        List<Tab> list = service.getAllTabByClient(client);
+        for(Tab item : list){
+            if (item.getDoctor().equals(doctor))
+                return item;
+        }
+        return null;
+    }
+
     //   Сохранить таб
     @RequestMapping(value = "/tab/save", method = RequestMethod.POST)
     @ResponseBody
@@ -263,10 +281,60 @@ public class PsychologistController {
         service.saveMessage(message);
     }
 
+    //   Получить все смс по табу
+    @RequestMapping(value = "/mes/tab{id}/time{text}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Message> getUpdateMessage(@PathVariable("id") int id, @PathVariable("text") String text){
+        List<Message> list = service.getAllMessageByTabId(id);
+        if (list.get(list.size()-1).getText().equals(text)){
+            return null;
+        } else {
+            for(int i=0; i<list.size(); i++){
+                if (list.get(i).getText().equals(text)){
+                    if (list.size()-1 == i) {
+                        List<Message> ll = new ArrayList<Message>();
+                        ll.add(list.get(i));
+                        return ll;
+                    }
+                    else
+                        return list.subList(i, list.size()-1);
+                }
+            }
+        }
+        return null;
+    }
+
     //   Удалить смс
     @RequestMapping(value = "/mes/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void removeMessage(@PathVariable("id") int id){
         service.removeMessage(id);
     }
+
+
+    /*
+    ФАЙЛЫ
+     */
+    @RequestMapping(value="/psychologist/upload", method=RequestMethod.POST)
+    @ResponseBody
+    public String uploadFile(@RequestParam("description") RequestBody description,
+                             @RequestParam MultipartFile file){
+        String path = "";
+        if (!file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
+                path = new File(description + "-uploaded").getPath();
+                System.out.println(path);
+                BufferedOutputStream stream =
+                        new BufferedOutputStream(new FileOutputStream(new File(description + "-uploaded")));
+                stream.write(bytes);
+                stream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("path > "+path);
+        return path;
+    }
+
 }

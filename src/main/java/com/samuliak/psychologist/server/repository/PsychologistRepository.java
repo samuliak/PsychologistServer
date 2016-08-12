@@ -18,24 +18,9 @@ public interface PsychologistRepository extends CrudRepository<Psychologist, Int
     @Query("select p from Psychologist p where p.online = true")
     List<Psychologist> getAllDoctorsWhoIsOnline();
 
-    @Query("select p from Psychologist p where p.country like :country and p.city like :city and p.competence like :competence")
-    List<Psychologist> findByCountryCityCompetence(@Param("country") String country,
-                                                   @Param("city") String city, @Param("competence") String competence);
-
     @Query("select p from Psychologist p where p.country like :country and p.city like :city")
     List<Psychologist> findByCountryCity(@Param("country") String country,
                                          @Param("city") String city);
-
-    @Query("select p from Psychologist p where p.country like :country and p.competence like :competence")
-    List<Psychologist> findByCountryCompetence(@Param("country") String country,
-                                               @Param("competence") String competence);
-
-    @Query("select p from Psychologist p where p.city like :city and p.competence like :competence")
-    List<Psychologist> findByCityCompetence(@Param("city") String city,
-                                               @Param("competence") String competence);
-
-    @Query("select p from Psychologist p where p.competence like :competence")
-    List<Psychologist> findByCompetence(@Param("competence") String competence);
 
     @Query("select p from Psychologist p where p.country like :country")
     List<Psychologist> findByCountry(@Param("country") String country);
